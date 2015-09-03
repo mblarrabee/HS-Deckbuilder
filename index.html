@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en" ng-app="mainApp">
+
+    <head>
+        <meta charset="UTF-8">
+        <link type="text/css" rel="stylesheet" href="normalize.css"/>
+        <link type="text/css" rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+        <link type="text/css" rel="stylesheet" href="style.css"/>
+            
+    </head>
+
+    <body>
+        
+        <nav>
+            <a href="/#/"><div>HOME</div></a>
+            <a href="/#/deckBuilder"><div>BUILD DECK</div></a>
+            <a href="/#/browseDecks"><div>BROWSE DECKS</div></a>
+            <a href="/#/login"><div>LOGIN</div></a>
+        </nav>
+        
+        <ng-view></ng-view>
+        
+<!--        <img src={{allCards.Basic[2].img}}>-->
+        
+        <!-- Angular -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-aria/angular-aria.js"></script>
+        <script src="bower_components/angular-material/angular-material.js"></script>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <!-- Firebase -->
+        <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+        <!-- AngularFire -->
+        <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
+        <!-- My files -->
+        <script src="app/app.js"></script>
+        <!-- Controllers -->
+        <script src="app/controllers/mainCtrl.js"></script>
+        <script src="app/controllers/deckBuilderCtrl.js"></script>
+        <script src="app/controllers/browseDecksCtrl.js"></script>
+        <!-- Services -->
+        <script src="app/services/getCardInfoService.js"></script>
+        <script src="app/services/parseCardsService.js"></script>
+        <script src="app/services/saveDeckService.js"></script>
+        <!-- Directives-->
+        <script src="app/directives/charClassesDirective.js"></script>
+    </body>
+
+</html>
