@@ -1,23 +1,21 @@
 <div ng-controller="browseDecksCtrl">
-    <div ng-repeat="deck in allDecks">
-        <div class = listOfDecks ng-mouseenter="deckHover = true" ng-mouseleave="deckHover = false">
-            <div>
+    <div style="display: inline-block; width: 800px; vertical-align: top;">
+        <div ng-repeat="deck in allDecks">
+            <div class = listOfDecks ng-click="selectDeck(deck)">
                 <div>
-                    {{deck.Name}}
-                </div>
-                <div ng-show="deckHover" style="padding:10px">
-                    {{deck.Description}}
-                </div>
-                <button class="pinDeckBtn" ng-show="deckHover" ng-click="pinDeck()">Pin Deck</button>
-                <div class="sidebarDeck" ng-if="deckPin && deckHover">
-                    <div class="deckContainer">
-                        <div ng-mouseenter="imageHover = true" ng-mouseleave="imageHover=false" class='sidebarCard' ng-click="removeCard(chosenCards.indexOf(card))" ng-repeat="card in deck.Cards | orderBy : ['cost', 'name']">
-                            <img class="hoverCard" ng-show="imageHover" src={{card.img}}>
-                            {{card.name}} -- {{card.cost}}
-                        </div>
+                    <div>
+                        {{deck.Name}}
                     </div>
+                    <div ng-show="deckHover" style="padding:10px">
+                        {{deck.Description}}
+                    </div>
+                    <button class="pinDeckBtn" ng-show="deckHover" ng-click="pinDeck()">Pin Deck</button>
                 </div>
             </div>
         </div>
     </div>
+    <div style="display: inline-block; width: 300px;">
+        <side-bar-deck>
+    </div>
+    
 </div>

@@ -91,9 +91,7 @@ nav > a {
 }
 
 .hoverCard {
-    display: block;
     height: 260px;
-    left: -159px;
     position: absolute;
     z-index: 2500000;
 /*    right: 0;*/
@@ -103,10 +101,10 @@ nav > a {
 .sidebarDeck {
     height: 750px;
     width: 300px;
-    position: fixed;
     top: 73px;
     right: 0em;
     background: #C2C2C2;
+    float: right;
 }
 
 .deckContainer {
@@ -160,7 +158,6 @@ nav > a {
     border-style:solid;
     border-color:beige;
     border-radius: 10px;
-    margin-right: 300px;
 }
 
 

@@ -4,6 +4,7 @@ angular.module("mainApp").controller("browseDecksCtrl", function($firebaseArray,
     $scope.allDecks = $firebaseArray(ref);
     
     $scope.deckPin = false;
+    $scope.Cards = [];
     
     $scope.pinDeck = function(){
         if(!$scope.deckPin){
@@ -16,6 +17,13 @@ angular.module("mainApp").controller("browseDecksCtrl", function($firebaseArray,
             $(".pinDeckBtn").html("Pin Deck");
             return;
         }
-    }
+    };
+
+    $scope.selectDeck = function(deck) {
+
+        $scope.Cards = _.uniq(deck.Cards, function(card) {
+            return card.cardId;
+        });
+    };
     
 });
