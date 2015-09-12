@@ -1,13 +1,16 @@
-angular.module("mainApp").controller("mainCtrl", function($scope, getCardInfoService, saveDeckService, $animate, $q, $filter, $compile){
+angular.module("mainApp").controller("mainCtrl", function($scope, getCardInfoService, saveDeckService, $animate, $firebaseAuth, $q, $filter, $compile, loginService){
    
     $scope.classChosen = false;
     var classes = ["Druid", "Hunter", "Mage", "Paladin", "Priest", "Rogue", "Shaman", "Warlock", "Warrior"];
     $scope.chosenCards = [];
     $scope.deckCardCount = 0;
    
+    loginService.getCurrentUser();
+
     $scope.chooseClass = function(charClass){
         $scope.classChosen = true;
         $scope.charClass = charClass;
+        $(".db").css("background-image", "none");
         for(var i in $scope.allCards.Classes){
             if($scope.allCards.Classes[i].playerClass === charClass){
                 $scope.classImg = $scope.allCards.Classes[i].img;
@@ -15,7 +18,7 @@ angular.module("mainApp").controller("mainCtrl", function($scope, getCardInfoSer
         }
     }
     
-    $scope.addCard = function(chosenCardArray, cardPos){
+    $scope.addCard = function(chosenCardArray, cardPos, classCard){
         var card = $scope.allCards[chosenCardArray][cardPos];
         var filterCards = $scope.chosenCards.filter(function(value){
             return value == card;
@@ -30,14 +33,17 @@ angular.module("mainApp").controller("mainCtrl", function($scope, getCardInfoSer
                     }
                 }
             $scope.chosenCards.push(card);
+            classCard.cardCount++;
+            console.log($scope.allCards);
             $scope.deckCardCount++;
             }
         }
 //        console.log(cardArray[cardPos].name);   
     }
     
-    $scope.removeCard = function(cardIndex){
+    $scope.removeCard = function(cardIndex, card){
         $scope.chosenCards.splice(cardIndex, 1);
+        console.log(card);
         $scope.deckCardCount--;
     }
     
@@ -50,13 +56,14 @@ angular.module("mainApp").controller("mainCtrl", function($scope, getCardInfoSer
             $scope.chosenCards = [];
             $scope.deckCardCount = 0;
             $scope.classChosen = false;
+            $(".db").css("background-image", "linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.7)), url(HS_Classes_color.jpg)");
         }
     }
     
     $scope.addDeck = function(){
         console.log("in ctrl");
         console.log($scope.chosenCards);
-        saveDeckService.saveDeck($scope.myDeckName, $scope.myDeckDescription, $scope.chosenCards);
+        saveDeckService.saveDeck($scope.myDeckName, $scope.myDeckDescription, $scope.chosenCards, loginService.getCurrentUser());
     }
     
     getCardInfoService.getAllCards().then(function(allRes){
@@ -98,5 +105,6 @@ angular.module("mainApp").controller("mainCtrl", function($scope, getCardInfoSer
             return res;
         })
     }
-    
+
+        
 });

@@ -1,15 +1,14 @@
 <div ng-controller="browseDecksCtrl">
-    <div style="display: inline-block; width: 800px; vertical-align: top;">
+    <div>
         <div ng-repeat="deck in allDecks">
-            <div class = listOfDecks ng-click="selectDeck(deck)">
+            <div class="listOfDecks" ng-mouseover="deckHover=true" ng-mouseleave="deckHover=false" ng-click="selectDeck(deck)">
                 <div>
                     <div>
-                        {{deck.Name}}
+                        {{deck.Name}} created by {{deck.CreatedBy}}
                     </div>
                     <div ng-show="deckHover" style="padding:10px">
                         {{deck.Description}}
                     </div>
-                    <button class="pinDeckBtn" ng-show="deckHover" ng-click="pinDeck()">Pin Deck</button>
                 </div>
             </div>
         </div>

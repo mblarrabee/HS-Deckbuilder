@@ -10,13 +10,13 @@
             
     </head>
 
-    <body>
+    <body ng-controller="headerCtrl">
         
         <nav>
             <a href="/#/"><div>HOME</div></a>
             <a href="/#/deckBuilder"><div>BUILD DECK</div></a>
             <a href="/#/browseDecks"><div>BROWSE DECKS</div></a>
-            <a href="/#/login"><div>LOGIN</div></a>
+            <div class="login_logout" ng-click="login_logout()">LOGIN</div>
         </nav>
         
         <ng-view></ng-view>
@@ -38,12 +38,13 @@
         <!-- My files -->
         <script src="app/app.js"></script>
         <!-- Controllers -->
+        <script src="app/controllers/headerCtrl.js"></script>
         <script src="app/controllers/mainCtrl.js"></script>
-        <script src="app/controllers/deckBuilderCtrl.js"></script>
         <script src="app/controllers/browseDecksCtrl.js"></script>
+        <script src="app/controllers/loginCtrl.js"></script>
         <!-- Services -->
         <script src="app/services/getCardInfoService.js"></script>
-        <script src="app/services/parseCardsService.js"></script>
+        <script src="app/services/loginService.js"></script>
         <script src="app/services/saveDeckService.js"></script>
         <!-- Directives-->
         <script src="app/directives/charClassesDirective.js"></script>

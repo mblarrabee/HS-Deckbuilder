@@ -34,6 +34,7 @@ angular.module("mainApp").service("getCardInfoService", function($q, $http){
             }).then(function(res){
                     var classCards = res.data;
                     for(var i = 0; i < classCards.length; i++){
+                        classCards[i].cardCount = 0;
                         if(!classCards[i].collectible || classCards[i].type == "Hero"){
                             classCards.splice(i,1);
                             i--;
@@ -56,6 +57,7 @@ angular.module("mainApp").service("getCardInfoService", function($q, $http){
                     typeCards = res.data;
                     if(type == "Minion"){
                         for(var i = 0; i < typeCards.length; i++){
+                            typeCards[i].cardCount = 0;
                             if(!typeCards[i].collectible || typeCards[i].playerClass){
                                 typeCards.splice(i,1);
                                 i--;

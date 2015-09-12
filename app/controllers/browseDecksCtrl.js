@@ -26,4 +26,10 @@ angular.module("mainApp").controller("browseDecksCtrl", function($firebaseArray,
         });
     };
     
+    $(".deckContainer").onmousemove = function (e) {
+                var y = e.clientY;
+                $(".hoverCard").css(top, y + 'px');
+            };
+            
+    
 });

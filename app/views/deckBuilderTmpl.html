@@ -1,4 +1,5 @@
 <body>
+    <div class="db">
 
 
         <div ng-hide="classChosen" class="header">
@@ -7,8 +8,8 @@
                 <div ng-hide="classChosen" class="chooseClassContainer">
                     <div ng-repeat="class in allCards.Classes">
                         <div class="char" ng-click="chooseClass(class.playerClass)">
-                            <img class="charImg" ng-src="{{class.img}}"></br>
-                            {{class.playerClass}}
+                            {{class.playerClass}}</br>
+                            <img class="charImg" ng-src="{{class.img}}">
                         </div>
                     </div>
                 </div>
@@ -29,7 +30,7 @@
                           <md-tab label="{{charClass}} Cards">
                             <md-content class="md-padding">
                                 <div class="cardContainer"  ng-repeat="classCard in allCards[charClass]">
-                                    <div class="char" ng-click="addCard(charClass, allCards[charClass].indexOf(classCard))">
+                                    <div class="char" ng-click="addCard(charClass, allCards[charClass].indexOf(classCard), classCard)">
                                         <img class="charImg" ng-src="{{classCard.img}}">
                                     </div>
                                 </div>
@@ -38,16 +39,10 @@
                           <md-tab label="Minions">
                             <md-content class="md-padding">
                                 <div class="cardContainer"  ng-repeat="eachMinion in allCards.Minion">
-                                    <div class="char" ng-click="addCard('Minion', allCards.Minion.indexOf(eachMinion))">
+                                    <div class="char" ng-click="addCard('Minion', allCards.Minion.indexOf(eachMinion), eachMinion)">
                                         <img class="charImg" ng-src="{{eachMinion.img}}">
                                     </div>
                                 </div>
-                            </md-content>
-                          </md-tab>
-                          <md-tab label="three">
-                            <md-content class="md-padding">
-                              <h1 class="md-display-2">Tab Three</h1>
-                              <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
                             </md-content>
                           </md-tab>
                         </md-tabs>
@@ -58,7 +53,7 @@
                 <div class="deckContainer">
                     <div ng-mouseenter="imageHover = true" ng-mouseleave="imageHover=false" style="cursor: {{card.img}}" class='sidebarCard' ng-click="removeCard(chosenCards.indexOf(card))" ng-repeat="card in chosenCards | orderBy : ['cost', 'name'] track by $index">
                         <img class="hoverCard" ng-show="imageHover" src={{card.img}}>
-                        {{card.name}} -- {{card.cost}}
+                        {{card.cost}} -- {{card.name}}
                     </div>
                 </div>
                 <div class="cardTotalCounter">
@@ -68,5 +63,5 @@
         </div>
            
             
-    
+    </div>
 </body>

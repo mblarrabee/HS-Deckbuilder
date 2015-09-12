@@ -6,7 +6,8 @@ angular.module("mainApp").directive("sideBarDeck", function(){
         templateUrl: "/app/views/sideBarDeck.html",
         replace: true,
         link: function(scope, el, att ) {
-        	(function() {});
+        	             
+            
         }
     }
 })

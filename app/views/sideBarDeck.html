@@ -1,8 +1,8 @@
 <div class="sidebarDeck">
     <div class="deckContainer">
-        <div ng-mouseenter="imageHover = true" ng-mouseleave="imageHover=false" class='sidebarCard' ng-repeat="card in Cards | orderBy : ['cost', 'name']">
-            <img class="hoverCard" ng-show="imageHover" src={{card.img}}>
-            {{card.name}} -- {{card.cost}}
+        <div class='sidebarCard' ng-repeat="card in Cards | orderBy : ['cost', 'name']">
+            <img class="hoverCard" src={{card.img}}>
+            {{card.cost}} -- {{card.name}}
         </div>
     </div>
 </div>

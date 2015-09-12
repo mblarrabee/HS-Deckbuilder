@@ -1,8 +1,13 @@
-html, body{
+html, body {
 
     width: 100%;
 	height: 100%;
 	margin:0;
+}
+
+button {
+    width: 130px;
+    height: 35px;
 }
 
 a {
@@ -12,7 +17,8 @@ a {
 
 nav {
 
-    background: gray;
+    background: #BA2B0B;
+    color: #FFE579;
     display: flex;
     padding: 25px;
     width: 100%;
@@ -31,17 +37,37 @@ nav > a {
     text-align: center;
     font-size: 20px;
     font-family: arial;
+    color: #F4C744;
     height: 100%;
     width: 25%;
+}
+
+.login_logout {
+    text-align: center;
+    font-size: 20px;
+    font-family: arial;
+    height: 100%;
+    width: 25%;
+    
+}
+
+.login_logout: hover {
+    cursor: hand;
 }
 
 .header {
 
     font-family: arial;
-    font-size: 18px;
+    font-size: 28px;
     text-align: center;
-    padding: 20px;
+    padding: 25px;
     margin:0;
+    font-weight: bold;
+}
+
+.register {
+    padding: 10px;
+    margin: auto;
 }
 
 .chooseClassContainer{
@@ -49,6 +75,7 @@ nav > a {
     flex-wrap: wrap;
     flex-direction: row;
     margin:0;
+    padding-left: 90px;
 }
 
 .cardContainer {
@@ -59,9 +86,11 @@ nav > a {
 .char {
     text-align:center;
     font-family: arial;
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: bold;
     display:block;
     margin:0;
+    padding-bottom: 40px;
 }
 
 .charImg {
@@ -92,35 +121,45 @@ nav > a {
 
 .hoverCard {
     height: 260px;
-    position: absolute;
+    display: none;
     z-index: 2500000;
+    right: 300px;
 /*    right: 0;*/
-/*    top: -1px;*/
+    /*top: 20px;*/
+}
+
+.sidebarCard:hover img {
+    display: block;
+    position: absolute;
+    
 }
 
 .sidebarDeck {
-    height: 750px;
+    max-height: 750px;
     width: 300px;
     top: 73px;
     right: 0em;
     background: #C2C2C2;
-    float: right;
+    position: fixed;
 }
 
 .deckContainer {
     overflow:auto;
-    height: 700px;
+    max-height: 750px;
     width: 300px;
 }
 
 .cardTotalCounter {
-    height: 50px;
-    width: 298px;
+    height: 40px;
+    line-height: 40px;
+    width: 300px;
     border-color: black;
     border-style: solid;
     border-width: 1px;
-    background: #C2C2C2;
-    font-size: 25px;
+    background: #625947;
+    color:white;
+    font-size: 19px;
+    padding-left: 7px;
 }
 
 .pickCardsForDeck {
@@ -133,7 +172,15 @@ nav > a {
 }
 
 .sidebarCard {
-    height: 40px;
+   
+    height: 35px;
+    border-style: solid;
+    border-color: #C2C2C2;
+    border-width: 1px;
+    line-height: 35px;
+    padding-left: 7px;
+    background: #625947;
+    color: #FAFAF8;
 }
 
 .tabsdemoDynamicHeight md-content {
@@ -156,8 +203,33 @@ nav > a {
 .listOfDecks {
     padding:10px;
     border-style:solid;
-    border-color:beige;
+    border-color:black;
     border-radius: 10px;
+    margin-right: 300px;
+    background: #D9B988;
+    color: black;
+    font-size: 17px;
 }
 
+.listOfDecks: hover {
+    margin-left: 25px;
+    margin-right: 275px;
+}
+
+
+.homepage {
+    height: 100%;
+    width: 100%;
+    background-image: url(HS_Box.jpeg);
+    background-size: 100%;
+}
+
+.db {
+    height: 100%;
+    width:100%;
+   /* background-image: url(HS_characters.jpeg);*/
+   background-image: linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.7)), url(HS_Classes_color.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
